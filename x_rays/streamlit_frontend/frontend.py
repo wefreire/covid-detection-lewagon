@@ -71,7 +71,7 @@ st.markdown(
 
 
 
-st.image("images/hero-image.png")
+st.image("/mount/src/x-rays-lewagon/x_rays/streamlit_frontend/images/hero-image.png")
 
 
 # --- Header ---
