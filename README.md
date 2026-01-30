@@ -66,7 +66,7 @@ O **Projeto X-rays** adota uma arquitetura **modular e escalável**, separando c
 * **Manipulação de Dados:** Pandas, NumPy
 * **Visão Computacional:** OpenCV, Pillow
 * **Deep Learning:** TensorFlow / Keras
-* **Arquiteturas:** DenseNet-121, EfficientNet-B0
+* **Arquiteturas:** DenseNet-121
 * **Visualização:** Matplotlib, Seaborn, Plotly
 * **Dashboard:** Streamlit
 
