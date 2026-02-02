@@ -4,7 +4,7 @@
 
 O **Projeto X-rays** é um projeto de **Data Science e Machine Learning aplicado à saúde**, que utiliza **Visão Computacional** e **Deep Learning** para análise de **radiografias de tórax**, com foco na identificação de padrões associados à **COVID-19**.
 
-Mais do que classificar imagens, o projeto busca **priorizar exames com maior risco clínico**, combinando **confiança do modelo** e **probabilidade estimada de severidade**. O objetivo é apoiar **triagem médica**, **pesquisa científica** e **demonstrações técnicas de IA aplicada à saúde**.
+O objetivo é apoiar **triagem médica**, **pesquisa científica** e **demonstrações técnicas de IA aplicada à saúde**.
 
 > ⚠️ **Aviso Importante:** Este projeto tem finalidade **educacional e experimental** e **não substitui diagnóstico médico**.
 
@@ -62,9 +62,9 @@ O **Projeto X-rays** adota uma arquitetura **modular e escalável**, separando c
 
 ## 🛠️ Stack Tecnológica
 
-* **Linguagem:** Python 3.12
+* **Linguagem:** Python 3.10
 * **Manipulação de Dados:** Pandas, NumPy
-* **Visão Computacional:** OpenCV, Pillow
+* **Visão Computacional:** Pillow
 * **Deep Learning:** TensorFlow / Keras
 * **Arquiteturas:** DenseNet-121
 * **Visualização:** Matplotlib, Seaborn, Plotly
@@ -78,7 +78,6 @@ O **Projeto X-rays** adota uma arquitetura **modular e escalável**, separando c
 
 * Consolidação de imagens de múltiplas fontes
 * Redimensionamento padronizado
-* Conversão para escala de cinza
 * Normalização de pixels
 * Validação de integridade (imagens corrompidas/inexistentes)
 * Análise e mitigação de desbalanceamento de classes
@@ -110,28 +109,16 @@ Essas técnicas reduzem **overfitting** e aumentam a capacidade de **generaliza�
 * **Classificação Multiclasse:**
 
   * COVID-19
-  * Pneumonia
   * Normal
 
 **Boas práticas de ML aplicadas:**
 
 * Early Stopping
-* Regularização (Dropout / L2)
-* Monitoramento de métricas clínicas relevantes
+* Regularização (Dropout)
 
 ---
 
-### 4️⃣ Priorização Clínica
-
-Além da classe prevista, o sistema calcula um **Clinical Priority Score**:
-
-```
-Prioridade Clínica =
-(0.6 × Confiança do Modelo) +
-(0.4 × Probabilidade de Severidade)
-```
-
-Esse score permite **ordenar exames por risco potencial**, apoiando a triagem e a revisão humana.
+**Observação:** threshold utilizado **0,4** (linha de corte).
 
 ---
 
@@ -143,8 +130,10 @@ O modelo é avaliado com métricas adequadas ao contexto clínico:
 * Precision
 * Recall (Sensibilidade)
 * F1-Score
-* AUC-ROC
 * Matriz de Confusão
+
+
+![Resultado final - xray -lewagon v2](https://github.com/user-attachments/assets/76f62c18-e5bb-40aa-b0de-653e6555d9ad)
 
 Essas métricas ajudam a equilibrar **falsos positivos** e **falsos negativos**, fundamentais em aplicações de saúde.
 
@@ -161,7 +150,7 @@ pip install -r requirements.txt
 ### 2️⃣ Treinamento do Modelo
 
 ```bash
-python train_model.py
+python train_model_lewagon.py
 ```
 
 ### 3️⃣ Execução do Dashboard
@@ -204,8 +193,6 @@ streamlit run app.py
 
 ## 🤝 Colaboração, Ownership e Contribuições
 
-Projetos em grupo evoluem em ritmos diferentes. Para evitar que o portfólio fique desatualizado, este repositório adota práticas claras de reconhecimento e continuidade.
-
 ### 👥 Equipe do Projeto
 
 * **Alexandre Otsuka** — GitHub: [https://github.com/arotsuka](https://github.com/arotsuka)
@@ -223,14 +210,14 @@ Projetos em grupo evoluem em ritmos diferentes. Para evitar que o portfólio fiq
 * Avaliação da origem das imagens e número por paciente
 * Análise estatística dos tamanhos das imagens
 
-**Segmentação (U-Net / U-Net++)**
+**Modelo testado - Segmentação (U-Net / U-Net++)**
 
 * Arquitetura encoder–decoder para segmentação pixel a pixel
 * Extração hierárquica de features
 * Skip connections para preservação espacial
 * Saída Sigmoid para mapas de probabilidade binária
 
-**Classificação (CNNs e Transfer Learning)**
+**Modelo testado - Classificação (CNNs e Transfer Learning)**
 
 * CNN customizada para classificação
 * EfficientNet-B0 com pipeline `tf.data`
